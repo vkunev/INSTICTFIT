@@ -161,6 +161,10 @@ if (isset($_REQUEST['query'])) {
             <div id="main">
               <div class="page-header">
                 <h3>Workouts</h3>
+<!-- Add workout button  -->
+                  <form> 
+                  <button type="button" class="btn btn-success">Add Workout</button>
+                  </form>
               </div>
 
 
