@@ -28,6 +28,26 @@ if(isset($_POST['submit'])){
       }
 
 
+function remove(){
+          $servername = "81.4.125.82";
+                    $username = "admin_ptaa";
+                    $password = "ptaa789";
+                    $dbname = "admin_ptaa";
+     $idd=$row['id']; 
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+          $sql = "delete from workouts where id='$idd'";
+                    $result = $conn->query($sql);
+}
+
+
+
+
 
 //CREDENTIALS FOR DB
 define ('DBSERVER', '81.4.125.82');
@@ -106,7 +126,7 @@ if (isset($_REQUEST['query'])) {
         <div id="header" class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <i class="icon-reorder"></i>
+            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span><i class="icon-reorder"></i>
         </button>
         <a class="navbar-brand" href="#">
             PTAA Admin
@@ -115,7 +135,7 @@ if (isset($_REQUEST['query'])) {
     <nav class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <li>
-                <a href="#">Navbar Item 1</a>
+                <a href="../timeline.php">TimeLine</a>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navbar Item 2<b class="caret"></b></a>
@@ -214,7 +234,87 @@ if (isset($_REQUEST['query'])) {
                     </form>
         </form>
 
+<!--Results table-->
+                
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Action</th>
+        <th>Name</th>
+        <th>Details</th>
+        <th>More</th>
+      </tr>
+    </thead>
+    <?php
+          $servername = "81.4.125.82";
+                    $username = "admin_ptaa";
+                    $password = "ptaa789";
+                    $dbname = "admin_ptaa";
 
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+          $sql = "SELECT id, name, description FROM workouts";
+                    $result = $conn->query($sql);
+
+
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                            while($row = $result->fetch_assoc()) { ?>
+    <tbody>
+      <tr>
+        <td><?php echo $row['id']; ?></td>
+          <td><form action="workouts.php"><button type="submit" onclick="remove()" class="btn btn-danger btn-sm"><font size='3'><span class="glyphicon glyphicon-remove-circle icon-rm"></span></font></button></form></td>
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['description']; ?></td>
+          <td><button type="button" class="btn"data-toggle="modal" data-target="#workoutModal"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td><?php }
+                    } ?>
+      </tr>         
+    </tbody>
+  </table>                                
+<!-- End Results table-->
+                
+                
+   <!--   Modal details for workouts -->
+<!-- Modal -->
+<div id="workoutModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+      <form action="func/add-workout.php" method="post" name="addworkout1"> 
+      
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><?php echo $row['name']; ?></h4>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="name" class="form-control"  name="name" id="name">
+     <label for="text">Description:</label>
+    <textarea type="text" class="form-control" name="description" id="text"></textarea>
+  </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" name="addworkout" class="btn btn-success pull-left" value="Add">
+      </div>
+       
+    </div>
+           </form>
+
+  </div>
+</div>
+<!--End  workoust details modal-->             
+                
 
 <!--      End Content          -->
                 </div>
