@@ -8,7 +8,7 @@
     -ms-text-size-adjust: 100%}
 body {
     margin: 0;
-   
+
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block;
@@ -762,7 +762,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
 /*    color: #333;*/
-    
+
 
 /*    background-color: #fff;*/
 }
@@ -5220,7 +5220,7 @@ button.close {
 
 
 .header-container {
-    
+
     background-image: url('https://s32.postimg.org/k24q9ocyt/background.jpg');
     background-position: center center;
     background-repeat: no-repeat;

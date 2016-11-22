@@ -70,7 +70,7 @@ function mySqlErrors($response)
 
 //function checkAdmin($isAdmin)
 //{
-//   
+//
 //    try {
 //        //session_start();
 //        $dbhost = '81.4.125.82';
@@ -89,9 +89,9 @@ function mySqlErrors($response)
 //        $_SESSION['isAdmin'] = $value;
 //        if($value)=== 1;
 //        return true;
-//         mysql_close($conn);  
-//        
-//        
+//         mysql_close($conn);
+//
+//
 //    } catch (PDOException $e) {
 //
 //        $err = "Error: " . $e->getMessage();

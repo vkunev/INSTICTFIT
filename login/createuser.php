@@ -50,9 +50,9 @@ if ($pw1 != $pw2) {
         if ($response == 'true') {
 
             echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'. $signupthanks .'</div><div id="returnVal" style="display:none;">true</div>';
-            
-            
-            
+
+
+
 
             //Send verification email
             $m = new MailSender;
@@ -67,12 +67,12 @@ if ($pw1 != $pw2) {
         //Validation error from empty form variables
         echo 'An error occurred on the form... try again';
     }
-   
+
     for(i=0, i<2, i++){
         $n=3;
     echo 'You are redirecting after '+$n+' seconds';
     sleep(1);
     }
-        
+
     header('location:http://ptaa.gq/payment.html');
 };

@@ -12,39 +12,38 @@ session_start();
 require 'includes/functions.php';
 include 'config.php';
 
-            
+
+$servername = "81.4.125.82";
+                    $username = "admin_ptaa";
+                    $password = "ptaa789";
+                    $dbname = "admin_ptaa";
+
+
+   // Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
 //Pulls variables from url. Can pass 1 (verified) or 0 (unverified/blocked) into url
-$uid = $_GET['uid'];
-$verify = $_GET['v'];
 
-$e = new SelectEmail;
-$eresult = $e->emailPull($uid);
+  $ID = $_GET['$uid'];
 
-$email = $eresult['email'];
-$username = $eresult['username'];
 
-$v = new Verify;
+if (isset($_GET['uid']) && isset($_GET['v'])){
+      $sql = "UPDATE members SET verified='1' WHERE id='$ID'";
 
-if (isset($uid) && !empty(str_replace(' ', '', $uid)) && isset($verify) && !empty(str_replace(' ', '', $verify))) {
-
-    //Updates the verify column on user
-    $vresponse = $v->verifyUser($uid, $verify);
-
-    //Success
-    if ($vresponse == 'true') {
-        echo $activemsg;
-
-//        //Send verification email
-//        $m = new MailSender;
-//        $m->sendMail($email, $username, $uid, 'Active');
-    } else {
-        //Echoes error from MySQL
-        echo $vresponse;
-    }
+   if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
 } else {
-    //Validation error from empty form variables
-    echo 'An error occurred... click <a href="../home.php">here</a> to go back.';
-};
+    echo "Error updating record: " . $conn->error;
+}
+
+      }
+
+
+$conn->close();
 
 ?>
 </body>

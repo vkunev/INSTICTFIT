@@ -20,4 +20,3 @@ class DbConn
     }
 }
 ?>
-<img src='../../login/'>

@@ -106,13 +106,13 @@ if (isset($_SESSION['username'])) {
 
 <!-- Container Header-->
 <div class="header-container">
-    
-  
-    
-    
+
+
+
+
     </div>
-    
-    
+
+
 
 
 
@@ -153,7 +153,7 @@ if (isset($_SESSION['username'])) {
 
 <!--Pricing-->
 
-    
+
         <div class="row db-padding-btm db-attached">
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="db-wrapper">
@@ -275,8 +275,8 @@ if (isset($_SESSION['username'])) {
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
-    
+
+
     <!-- The AJAX login script -->
 <!--    <script src="login/js/login.js"></script>-->
 

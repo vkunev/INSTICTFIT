@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 require  'events/addevent.php';
@@ -165,7 +165,7 @@ $user = $_SESSION['username'];
 
                                     </div>
                                     <!-- End Modal body -->
-                        <p>            
+                        <p>
                         <div class="modal-footer">
                                         <input type="submit" class="btn btn-success" name="submit" value="Submit" />
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

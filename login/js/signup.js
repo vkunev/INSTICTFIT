@@ -13,7 +13,7 @@ $(document).ready(function(){
     else {
       $.ajax({
         type: "POST",
-        url: "createuser.php",
+        url: "http://ptaa.gq/login/createuser.php",
         data: "newuser="+username+"&password1="+password+"&password2="+password2+"&email="+email,
         success: function(html){
 

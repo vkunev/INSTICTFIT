@@ -1,6 +1,62 @@
 <?xml version="1.0"?>
 <monthly>
   <event>
+    <id>6</id>
+    <name>Tets</name>
+    <startdate>2016-11-28</startdate>
+    <starttime>4:00am</starttime>
+    <enddate>2016-11-28</enddate>
+  </event>
+  <event>
+    <id>74</id>
+    <name>asddasdasd</name>
+    <startdate>2016-11-15</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-11-15</enddate>
+  </event>
+  <event>
+    <id>41</id>
+    <name>New Event</name>
+    <startdate>2016-11-17</startdate>
+    <starttime>1:00am</starttime>
+    <enddate>2016-11-17</enddate>
+  </event>
+  <event>
+    <id>90</id>
+    <name>New Event</name>
+    <startdate>2016-11-17</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-11-17</enddate>
+  </event>
+  <event>
+    <id>37</id>
+    <name>Fitness Coaching</name>
+    <startdate>2016-10-24</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-24</enddate>
+  </event>
+  <event>
+    <id>57</id>
+    <name>Kor</name>
+    <startdate>2016-10-04</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-04</enddate>
+  </event>
+  <event>
+    <id>7</id>
+    <name>teasd</name>
+    <startdate>2016-10-09</startdate>
+    <starttime>12:30am</starttime>
+    <enddate>2016-10-09</enddate>
+  </event>
+  <event>
+    <id>96</id>
+    <name>Kor</name>
+    <startdate>2016-10-12</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-12</enddate>
+  </event>
+  <event>
     <id>62</id>
     <name>qmibakura</name>
     <startdate>2016-10-06</startdate>

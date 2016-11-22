@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -12,13 +12,13 @@ $servername = "81.4.125.82";
                     $password = "ptaa789";
                     $dbname = "admin_ptaa";
 
-                    
+
     // Create connection
                     $conn = new mysqli($servername, $username, $password, $dbname);
                     // Check connection
                     if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 
 ?>
     <!DOCTYPE html>
@@ -78,7 +78,7 @@ $servername = "81.4.125.82";
                         <i class="icon-reorder"></i>
                     </button>
                     <a class="navbar-brand" href="home.php">
-            my PTAA 
+            my PTAA
         </a>
                 </div>
                 <nav class="collapse navbar-collapse">
@@ -205,24 +205,24 @@ $servername = "81.4.125.82";
 
 
                             <ul class="timeline">
-                     
+
 <?php
                     $sql = "SELECT id,user, post, timestamp FROM feed ORDER BY id DESC";
                     $result = $conn->query($sql);
 
-                    
-            
+
+
                     if ($result->num_rows > 0) {
                         // output data of each row
-                            while($row = $result->fetch_assoc()) {?>                
+                            while($row = $result->fetch_assoc()) {?>
                                 <?php
                                 $id = $row['id'];
                                     if($id%2==0)
                                         {
                                         echo "<li>";
-                                        }else{ 
+                                        }else{
                                             echo "<li class='timeline-inverted'>";
-                                                } 
+                                                }
                                 ?>
                                     <div class="timeline-badge"><i class="glyphicon glyphicon-user"></i></div>
                                     <div class="timeline-panel">
@@ -236,7 +236,7 @@ $servername = "81.4.125.82";
                                     </div>
                                 </li>
                                 <?php
-                                        
+
                     }
 ?>
 <!--
@@ -266,14 +266,13 @@ $servername = "81.4.125.82";
                                 });
                             });
                         </script>
-                
+
                 <?php
-            
+
                                ?>
-                    
-                    
-                    
-                    
-                    
-                    
-                   
+
+
+
+
+
+

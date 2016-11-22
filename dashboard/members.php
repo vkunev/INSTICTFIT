@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['username'])) {
     header("location:http://login/main_login.php");
@@ -139,13 +139,13 @@ $user = $_SESSION['username'];
                     // Check connection
                     if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 
                     $sql = "SELECT id, username, email, verified, mod_timestamp FROM members";
                     $result = $conn->query($sql);
 
-                    
-            
+
+
                     if ($result->num_rows > 0) {
                         // output data of each row
                             while($row = $result->fetch_assoc()) { ?>
@@ -161,21 +161,21 @@ $user = $_SESSION['username'];
                                         </td>
                                         <td>
                                             <?php echo $row['verified'];
-                       if(($row['verified'])=='0'){ 
-                            
+                       if(($row['verified'])=='0'){
+
                            $idd= $row['id'];
                            $ve = $row['verified'];
-                           
-                           
+
+
 //                           $_SESSION["uid"] = $idd;
 //                           $_SESSION["v"] = $ve;
-                           
-                           
-                        
-                           
+
+
+
+
                            ?> <a href="../login/verifyuser.php?<?php echo 'uid='. $idd . '&v='. $ve; ?>"><button type='submit' name='submit' class='btn btn-xs btn-success'><span class='glyphicon glyphicon glyphicon-ok' aria-hidden='true'></span>
                     </button></a><?php
-                           
+
 //                           echo '&nbsp;<a href="http://ptaa.gq/login/verifyuser.php?uid='. $uid .'&v='. $v .'"><button type="submit" name="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span>
 //                    </button></a>';
                            //header("Location http://ptaa.gq/dashboard/members.php");
@@ -194,11 +194,11 @@ $user = $_SESSION['username'];
 
 
 
-                                    <?php  
+                                    <?php
                                 }
                     }
 
-                  
+
 ?>
 
                             </tbody>
@@ -213,8 +213,8 @@ $user = $_SESSION['username'];
 
         </div>
         <!-- ./wrapper -->
-        
-        
+
+
 <!--
         <script>
                 function approve() {
@@ -222,7 +222,7 @@ $user = $_SESSION['username'];
                 var php_v= "<?php echo $v; ?>";
                 $.get("http://ptaa.gq/login/verifyuser.php?uid="php_uid"&v="php_v);
                 return false;
-                
+
         }
             $(document).ready(approve(){});
         </script>

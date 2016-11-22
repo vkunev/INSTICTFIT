@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -12,13 +12,13 @@ $servername = "81.4.125.82";
                     $password = "ptaa789";
                     $dbname = "admin_ptaa";
 
-                    
+
     // Create connection
                     $conn = new mysqli($servername, $username, $password, $dbname);
                     // Check connection
                     if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 
 
 
@@ -129,7 +129,7 @@ if(isset($_POST['select-workout'])){
                         <i class="icon-reorder"></i>
                     </button>
                     <a class="navbar-brand" href="#">
-            my PTAA 
+            my PTAA
         </a>
                 </div>
                 <nav class="collapse navbar-collapse">
@@ -199,10 +199,10 @@ if(isset($_POST['select-workout'])){
                         <div class="page-header">
 
                             <h3>My Hub</h3>
-                            
-                            
-                            
-                            
+
+
+
+
                              <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -231,12 +231,12 @@ if(isset($_POST['select-workout'])){
     </div>
 
   </div>
-</div>                               
+</div>
 <!-- End Modal-->
 
-                            
-                            
-                            
+
+
+
                             <!-- Floating action button-->
                             <div class="fixed-action-btn horizontal click-to-toggle">
                                 <a class="btn-floating btn-large red waves-effect waves-light red">
@@ -245,7 +245,7 @@ if(isset($_POST['select-workout'])){
                                 <ul>
                                     <li>
                                         <a class="btn-floating red waves-effect waves-light red" title="Hooray!" data-toggle="modal" data-target="#myModal"><i class="material-icons"><i class="fa fa-child"></i></i>
-                                        </a>                                
+                                        </a>
                                     </li>
 
                                     <li><a class="btn-floating green waves-effect waves-light red " data-toggle="tooltip" data-placement="top" title="Hooray!"><i class="material-icons"><span class="glyphicon glyphicon-cutlery"></span></i></a></li>
@@ -295,12 +295,12 @@ if(isset($_POST['select-workout'])){
                             </div>
                             <!--col left-->
 <div class="col-md-6">
-                        
+
                         </div>
 <!-- col-right -->
-                            
-                            
-                            
+
+
+
                         </div>
                         <!--roll -->
 
@@ -308,10 +308,10 @@ if(isset($_POST['select-workout'])){
 
 <script>
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
 
                         <?php
-            
+
                                ?>

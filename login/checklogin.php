@@ -51,8 +51,9 @@ if ($lastAttempt['attempts'] < $max_attempts && $response != 'true') {
     $resp = new RespObj($username, $response);
     $jsonResp = json_encode($resp);
     echo $jsonResp;
-    
+
     $_SESSION['uname'] = $username;
+    $username=$_POST['unam'];
     header('Location: includes/checkadmin.php');
 
 //    if(checkAdmin($isAdmin)=== true)

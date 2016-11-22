@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -12,13 +12,13 @@ $servername = "81.4.125.82";
                     $password = "ptaa789";
                     $dbname = "admin_ptaa";
 
-                    
+
     // Create connection
                     $conn = new mysqli($servername, $username, $password, $dbname);
                     // Check connection
                     if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 
 ?>
     <!DOCTYPE html>
@@ -87,7 +87,7 @@ $servername = "81.4.125.82";
                         <i class="icon-reorder"></i>
                     </button>
                     <a class="navbar-brand" href="#">
-            my PTAA 
+            my PTAA
         </a>
                 </div>
                 <nav class="collapse navbar-collapse">
@@ -157,17 +157,17 @@ $servername = "81.4.125.82";
                         <div class="page-header">
 
                             <h3>Add Workout</h3>
-                            
+
 
                         </div>
 
                         <!-- Content -->
-                        
+
 
                         <!-- End Content -->
 
 
 
                         <?php
-            
+
                                ?>

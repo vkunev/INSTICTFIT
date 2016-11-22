@@ -19,13 +19,13 @@ echo $user;
                     // Check connection
                     if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
-                        } 
+                        }
 var_dump($user);
 var_dump($post);
 
-          
+
 mysqli_query($conn, "INSERT INTO feed (user, post)
 VALUES ('$user', '$post')");
-    
+
 header('Location: http://ptaa.gq/timeline.php');
 ?>

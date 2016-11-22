@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 if (!isset($_SESSION['username'])) {
@@ -6,25 +6,25 @@ if (!isset($_SESSION['username'])) {
 }
 $user = $_SESSION['username'];
 
-if(isset($_POST['submit'])){ 
-	  //do  something here in code 
-    if(preg_match("^/[A-Za-z]+/", $_POST['name'])){ 
-	   $name=$_POST['name']; 
-        
+if(isset($_POST['submit'])){
+	  //do  something here in code
+    if(preg_match("^/[A-Za-z]+/", $_POST['name'])){
+	   $name=$_POST['name'];
+
         $db=mysql_connect ("81.4.125.82",  "admin_ptaa", "ptaa789") or die ('I cannot connect  to the database because: ' . mysql_error());
         $mydb=mysql_select_db("admin_ptaa");
         $sql="SELECT id, name FROM workouts WHERE name LIKE '%" . $name . "%'";
         $result=mysql_query($sql);
-        while($row=mysql_fetch_array($result)){ 
-	          $Name = $row['name']; 
-	          $Details = $row['description']; 
-	          $wid = $row['id']; 
+        while($row=mysql_fetch_array($result)){
+	          $Name = $row['name'];
+	          $Details = $row['description'];
+	          $wid = $row['id'];
         }
-        
-	  } 
-	  } 
-	  else{ 
-	   
+
+	  }
+	  }
+	  else{
+
       }
 
 
@@ -63,15 +63,15 @@ if (isset($_REQUEST['query'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ptAA | Workouts</title>
-      
-      
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      
-      
-      
+
+
+
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -82,11 +82,11 @@ if (isset($_REQUEST['query'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-      
+
       <script src="//netsh.pp.ua/upwork-demo/1/js/typeahead.js"></script>
 <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    
-    
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -100,10 +100,10 @@ if (isset($_REQUEST['query'])) {
     <!-- Site wrapper -->
     <div class="wrapper">
 
-      
-        
-        
-        <div id="header" class="navbar navbar-default navbar-fixed-top"> 
+
+
+
+        <div id="header" class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <i class="icon-reorder"></i>
@@ -162,11 +162,11 @@ if (isset($_REQUEST['query'])) {
               <div class="page-header">
                 <h3>Workouts</h3>
               </div>
-                          
-            
+
+
 <!--   Content         -->
-                
-                
+
+
                 <form>
             <h3>Find workout</h3>
                     <form  method="post" action="#"  id="searchform">
@@ -174,18 +174,18 @@ if (isset($_REQUEST['query'])) {
                     <input  type="submit" name="submit" value="Search">
                     </form>
         </form>
-                
-                
-                
+
+
+
 <!--      End Content          -->
                 </div>
         </div>
 </div>
-        
-        
-        
-        
-        
+
+
+
+
+
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
@@ -196,8 +196,8 @@ if (isset($_REQUEST['query'])) {
     <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="../../plugins/fastclick/fastclick.min.js"></script>
-      
-      
+
+
       <script>
         $(document).ready(function() {
 
@@ -209,11 +209,11 @@ if (isset($_REQUEST['query'])) {
 
         })
     </script>
-      
-      
-      
-      
-   
+
+
+
+
+
   </body>
 </html>
 
