@@ -162,10 +162,45 @@ if (isset($_REQUEST['query'])) {
               <div class="page-header">
                 <h3>Workouts</h3>
 <!-- Add workout button  -->
-                  <form> 
-                  <button type="button" class="btn btn-success">Add Workout</button>
-                  </form>
+                  
+                  <button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal">Add Workout</button>
+                
               </div>
+                
+<!--   Add workouts modal-->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+      <form action="func/add-workout.php" method="post" name="addworkout1"> 
+      
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="name" class="form-control"  name="name" id="name">
+     <label for="text">Description:</label>
+    <textarea type="text" class="form-control" name="description" id="text"></textarea>
+  </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" name="addworkout" class="btn btn-success pull-left" value="Add">
+      </div>
+       
+    </div>
+           </form>
+
+  </div>
+</div>
+<!--End Add workoust modal-->
 
 
 <!--   Content         -->
@@ -193,13 +228,13 @@ if (isset($_REQUEST['query'])) {
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!--    <script src="../js/jquery.js"></script>-->
     <!-- Bootstrap 3.3.5 -->
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!--    <script src="../bootstrap/js/bootstrap.min.js"></script>-->
     <!-- SlimScroll -->
-    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!--    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>-->
     <!-- FastClick -->
-    <script src="../../plugins/fastclick/fastclick.min.js"></script>
+<!--    <script src="../../plugins/fastclick/fastclick.min.js"></script>-->
 
 
       <script>
