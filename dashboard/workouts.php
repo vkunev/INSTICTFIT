@@ -1,39 +1,21 @@
 <?php
 
 session_start();
+
 if (!isset($_SESSION['username'])) {
     header("location:login/main_login.php");
 }
-$user = $_SESSION['username'];
 
-if(isset($_POST['submit'])){
-	  //do  something here in code
-    if(preg_match("^/[A-Za-z]+/", $_POST['name'])){
-	   $name=$_POST['name'];
+//detects if delete is pressed and deletes the selected ID
+if($_GET['del'])
+   {
+    $nid = $_GET['del'];
+    
 
-        $db=mysql_connect ("81.4.125.82",  "admin_ptaa", "ptaa789") or die ('I cannot connect  to the database because: ' . mysql_error());
-        $mydb=mysql_select_db("admin_ptaa");
-        $sql="SELECT id, name FROM workouts WHERE name LIKE '%" . $name . "%'";
-        $result=mysql_query($sql);
-        while($row=mysql_fetch_array($result)){
-	          $Name = $row['name'];
-	          $Details = $row['description'];
-	          $wid = $row['id'];
-        }
-
-	  }
-	  }
-	  else{
-
-      }
-
-
-function remove(){
-          $servername = "81.4.125.82";
+    $servername = "81.4.125.82";
                     $username = "admin_ptaa";
                     $password = "ptaa789";
                     $dbname = "admin_ptaa";
-     $idd=$row['id']; 
 
                     // Create connection
                     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,38 +23,14 @@ function remove(){
                     if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                         }
-          $sql = "delete from workouts where id='$idd'";
+          $sql="DELETE FROM workouts WHERE id='".$nid."'";
                     $result = $conn->query($sql);
-}
+    header('Location: workouts.php');
+   }     
+//end deletion
 
-
-
-
-
-//CREDENTIALS FOR DB
-define ('DBSERVER', '81.4.125.82');
-define ('DBUSER', 'admin_ptaa');
-define ('DBPASS','ptaa789');
-define ('DBNAME','admin_ptaa');
-
-//LET'S INITIATE CONNECT TO DB
-$connection = mysql_connect(DBSERVER, DBUSER, DBPASS) or die("Can't connect to server. Please check credentials and try again");
-$result = mysql_select_db(DBNAME) or die("Can't select database. Please check DB name and try again");
-
-//CREATE QUERY TO DB AND PUT RECEIVED DATA INTO ASSOCIATIVE ARRAY
-if (isset($_REQUEST['query'])) {
-    $query = $_REQUEST['query'];
-    $sql = mysql_query ("SELECT name FROM workouts WHERE name LIKE '%{$query}%'");
-	$array = array();
-    while ($row = mysql_fetch_array($sql)) {
-        $array[] = array (
-            'label' => $row['name'],
-            'value' => $row['name'],
-        );
-    }
-    //RETURN JSON ARRAY
-    echo json_encode ($array);
-}
+//getting user name from session
+$user = $_SESSION['username'];
 
 ?>
 
@@ -226,6 +184,14 @@ if (isset($_REQUEST['query'])) {
 <!--   Content         -->
 
 
+                <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <input type="search" id="search" value="" class="form-control" placeholder="Enter a phrase or workout name">
+        </div>
+    </div>
+                
+                
+<!--
                 <form>
             <h3>Find workout</h3>
                     <form  method="post" action="#"  id="searchform">
@@ -233,10 +199,12 @@ if (isset($_REQUEST['query'])) {
                     <input  type="submit" name="submit" value="Search">
                     </form>
         </form>
+-->
 
 <!--Results table-->
+               <p><h4>Workouts database</h4></p> 
                 
-<table class="table table-hover">
+<table id="table"class="table table-hover">
     <thead>
       <tr>
         <th>id</th>
@@ -265,17 +233,23 @@ if (isset($_REQUEST['query'])) {
 
                     if ($result->num_rows > 0) {
                         // output data of each row
+                        $n="0";
+                        $idd = array();
                             while($row = $result->fetch_assoc()) { ?>
+    
     <tbody>
       <tr>
-        <td><?php echo $row['id']; ?></td>
-          <td><form action="workouts.php"><button type="submit" onclick="remove()" class="btn btn-danger btn-sm"><font size='3'><span class="glyphicon glyphicon-remove-circle icon-rm"></span></font></button></form></td>
+        <td><?php echo $row['id']; $id = $row['id']; $n++ ;?></td>
+          <td><form action="workouts.php">
+              <button type="button" name="abc" id="abc" onclick="return Deleteqry(<?php echo $id ?>);" class="btn btn-danger btn-sm"><font size='3'><span class="glyphicon glyphicon-remove-circle icon-rm"></span></font></button></form></td>
         <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['description']; ?></td>
-          <td><button type="button" class="btn"data-toggle="modal" data-target="#workoutModal"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td><?php }
-                    } ?>
-      </tr>         
+          <td><button type="button" class="btn"data-toggle="modal" data-target="#workoutModal"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
+      </tr> 
+        
     </tbody>
+    <?php }
+                    } ?>
   </table>                                
 <!-- End Results table-->
                 
@@ -291,7 +265,7 @@ if (isset($_REQUEST['query'])) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><?php echo $row['name']; ?></h4>
+        <h4 class="modal-title"><?php echo $idd; ?></h4>
       </div>
       <div class="modal-body">
         
@@ -299,7 +273,7 @@ if (isset($_REQUEST['query'])) {
     <label for="name">Name:</label>
     <input type="name" class="form-control"  name="name" id="name">
      <label for="text">Description:</label>
-    <textarea type="text" class="form-control" name="description" id="text"></textarea>
+    <textarea type="text" class="form-control" name="description" id="text"><?php echo $description ?></textarea>
   </div>
           
       </div>
@@ -327,6 +301,8 @@ if (isset($_REQUEST['query'])) {
 
     </div><!-- ./wrapper -->
 
+    <script src="../js/jquery.searchable.js"></script>
+    
     <!-- jQuery 2.1.4 -->
 <!--    <script src="../js/jquery.js"></script>-->
     <!-- Bootstrap 3.3.5 -->
@@ -348,6 +324,44 @@ if (isset($_REQUEST['query'])) {
 
         })
     </script>
+    
+    <script>
+    
+    $(function () {
+    $( '#table' ).searchable({
+        striped: true,
+        oddRow: { 'background-color': '#f5f5f5' },
+        evenRow: { 'background-color': '#fff' },
+        searchType: 'fuzzy'
+    });
+    
+    $( '#searchable-container' ).searchable({
+        searchField: '#container-search',
+        selector: '.row',
+        childSelector: 'td',
+        show: function( elem ) {
+            elem.slideDown(100);
+        },
+        hide: function( elem ) {
+            elem.slideUp( 100 );
+        }
+    })
+});
+    
+    
+    </script>
+    
+    <script>
+    
+    function Deleteqry(id)
+{ 
+  if(confirm("Are you sure you want to delete this row?")==true)
+           window.location="workouts.php?del="+id;
+    return false;
+}
+    
+    
+    </script>
 
 
 
@@ -355,5 +369,4 @@ if (isset($_REQUEST['query'])) {
 
   </body>
 </html>
-
 
