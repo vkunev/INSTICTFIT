@@ -188,4 +188,3 @@
     };
 
 })( jQuery, window, document );
-
