@@ -11,7 +11,6 @@ if($_GET['del'])
    {
     $nid = $_GET['del'];
 
-
     $servername = "81.4.125.82";
                     $username = "admin_ptaa";
                     $password = "ptaa789";
@@ -26,7 +25,11 @@ if($_GET['del'])
           $sql="DELETE FROM workouts WHERE id='".$nid."'";
                     $result = $conn->query($sql);
     header('Location: workouts.php');
+
    }
+
+   }     
+
 //end deletion
 
 //getting user name from session
@@ -141,9 +144,50 @@ $user = $_SESSION['username'];
                 <h3>Workouts</h3>
 <!-- Add workout button  -->
 
+
                   <button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal">Add Workout</button>
 
+
+                  
+                  <button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal">Add Workout</button>
+                
+
               </div>
+                
+<!--   Add workouts modal-->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+      <form action="func/add-workout.php" method="post" name="addworkout1"> 
+      
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="name" class="form-control"  name="name" id="name">
+     <label for="text">Description:</label>
+    <textarea type="text" class="form-control" name="description" id="text"></textarea>
+  </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" name="addworkout" class="btn btn-success pull-left" value="Add">
+      </div>
+       
+    </div>
+           </form>
+
+  </div>
+</div>
+<!--End Add workoust modal-->
 
 <!--   Add workouts modal-->
 <!-- Modal -->
@@ -190,7 +234,6 @@ $user = $_SESSION['username'];
         </div>
     </div>
 
-
 <!--
                 <form>
             <h3>Find workout</h3>
@@ -202,7 +245,10 @@ $user = $_SESSION['username'];
 -->
 
 <!--Results table-->
-               <p><h4>Workouts database</h4></p>
+
+              
+               <p><h4>Workouts database</h4></p> 
+                
 
 <table id="table"class="table table-hover">
     <thead>
@@ -237,6 +283,8 @@ $user = $_SESSION['username'];
                         $idd = array();
                             while($row = $result->fetch_assoc()) { ?>
 
+    
+
     <tbody>
       <tr>
         <td><?php echo $row['id']; $id = $row['id']; $n++ ;?></td>
@@ -245,22 +293,26 @@ $user = $_SESSION['username'];
         <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['description']; ?></td>
           <td><button type="button" class="btn"data-toggle="modal" data-target="#workoutModal"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
-      </tr>
-
+		</tr> 
+        
     </tbody>
     <?php }
                     } ?>
-  </table>
+  </table>                                
 <!-- End Results table-->
-
-
+                
+                
    <!--   Modal details for workouts -->
 <!-- Modal -->
 <div id="workoutModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
+
       <form action="func/add-workout.php" method="post" name="addworkout1">
+
+
+      
 
     <div class="modal-content">
       <div class="modal-header">
@@ -282,6 +334,7 @@ $user = $_SESSION['username'];
         <input type="submit" name="addworkout" class="btn btn-success pull-left" value="Add">
       </div>
 
+
     </div>
            </form>
 
@@ -289,7 +342,8 @@ $user = $_SESSION['username'];
 </div>
 <!--End  workoust details modal-->
 
-
+       
+  
 <!--      End Content          -->
                 </div>
         </div>
@@ -323,6 +377,44 @@ $user = $_SESSION['username'];
             });
 
         })
+    </script>
+    
+    <script>
+    
+    $(function () {
+    $( '#table' ).searchable({
+        striped: true,
+        oddRow: { 'background-color': '#f5f5f5' },
+        evenRow: { 'background-color': '#fff' },
+        searchType: 'fuzzy'
+    });
+    
+    $( '#searchable-container' ).searchable({
+        searchField: '#container-search',
+        selector: '.row',
+        childSelector: 'td',
+        show: function( elem ) {
+            elem.slideDown(100);
+        },
+        hide: function( elem ) {
+            elem.slideUp( 100 );
+        }
+    })
+});
+    
+    
+    </script>
+    
+    <script>
+    
+    function Deleteqry(id)
+{ 
+  if(confirm("Are you sure you want to delete this row?")==true)
+           window.location="workouts.php?del="+id;
+    return false;
+}
+    
+    
     </script>
 
     <script>
