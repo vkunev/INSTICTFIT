@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<monthly>
+  <event>
+    <id>6</id>
+    <name>Tets</name>
+    <startdate>2016-11-28</startdate>
+    <starttime>4:00am</starttime>
+    <enddate>2016-11-28</enddate>
+  </event>
+  <event>
+    <id>74</id>
+    <name>asddasdasd</name>
+    <startdate>2016-11-15</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-11-15</enddate>
+  </event>
+  <event>
+    <id>41</id>
+    <name>New Event</name>
+    <startdate>2016-11-17</startdate>
+    <starttime>1:00am</starttime>
+    <enddate>2016-11-17</enddate>
+  </event>
+  <event>
+    <id>90</id>
+    <name>New Event</name>
+    <startdate>2016-11-17</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-11-17</enddate>
+  </event>
+  <event>
+    <id>37</id>
+    <name>Fitness Coaching</name>
+    <startdate>2016-10-24</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-24</enddate>
+  </event>
+  <event>
+    <id>57</id>
+    <name>Kor</name>
+    <startdate>2016-10-04</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-04</enddate>
+  </event>
+  <event>
+    <id>7</id>
+    <name>teasd</name>
+    <startdate>2016-10-09</startdate>
+    <starttime>12:30am</starttime>
+    <enddate>2016-10-09</enddate>
+  </event>
+  <event>
+    <id>96</id>
+    <name>Kor</name>
+    <startdate>2016-10-12</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-12</enddate>
+  </event>
+  <event>
+    <id>62</id>
+    <name>qmibakura</name>
+    <startdate>2016-10-06</startdate>
+    <starttime>6:00am</starttime>
+    <enddate>2016-10-06</enddate>
+  </event>
+  <event>
+    <id>71</id>
+    <name>qjmikura</name>
+    <startdate>2016-10-09</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-09</enddate>
+  </event>
+  <event>
+    <id>89</id>
+    <name>yolo</name>
+    <startdate>2016-10-03</startdate>
+    <starttime>12:30am</starttime>
+    <enddate>2016-10-03</enddate>
+  </event>
+  <event>
+    <id>14</id>
+    <name>Viki RD</name>
+    <startdate>2016-10-11</startdate>
+    <starttime>12:30pm</starttime>
+    <enddate>2016-10-11</enddate>
+  </event>
+  <event>
+    <id>15</id>
+    <name>dada</name>
+    <startdate>2016-10-03</startdate>
+    <starttime>12:00am</starttime>
+    <enddate>2016-10-03</enddate>
+  </event>
+  <event>
+    <id>68</id>
+    <name>Test Event 3</name>
+    <startdate>2016-10-02</startdate>
+    <starttime>12:30am</starttime>
+    <enddate>2016-10-02</enddate>
+  </event>
+  <event>
+    <id>86</id>
+    <name>Test Event 2</name>
+    <startdate>2016-10-02</startdate>
+    <starttime>1:00am</starttime>
+    <enddate>2016-10-02</enddate>
+  </event>
+  <event>
+    <id>7</id>
+    <name>dasd</name>
+    <startdate>2016-10-03</startdate>
+    <starttime>12:30am</starttime>
+    <enddate>2016-10-03</enddate>
+  </event>
+  <event>
+    <id>1</id>
+    <name>Test Event</name>
+    <startdate>2016-9-28</startdate>
+    <enddate>2016-9-28</enddate>
+    <!-- optional -->
+    <starttime>9:00</starttime>
+    <!-- optional (military time) -->
+    <endtime>19:00</endtime>
+    <!-- optional (military time) -->
+    <color>#ffb128</color>
+    <!-- optional -->
+    <url>http://www.yourlink.com</url>
+    <!-- optional -->
+  </event>
+</monthly>
